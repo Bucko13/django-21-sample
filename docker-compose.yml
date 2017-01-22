@@ -1,8 +1,12 @@
-version: "3"
+version: "2"
 
 services:
+  web:
     build: .
-    volumes:
-      - .:.
     ports:
       - "8000:8000"
+    expose:
+      - "8000"
+    volumes:
+      - .:/usr/src/app
+    command: python manage.py runserver 0.0.0.0:8000
