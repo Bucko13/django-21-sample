@@ -16,6 +16,8 @@ import json
 import dotenv
 import dj_database_url
 
+from two1.wallet import Two1Wallet
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # load environment variables from .env
@@ -30,13 +32,14 @@ if os.path.isfile(dotenv_file):
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
+TWO1_WALLET_MNEMONIC = os.environ.get("TWO1_WALLET_MNEMONIC")
+TWO1_USERNAME = os.environ.get("TWO1_USERNAME")
+WALLET = Two1Wallet.import_from_mnemonic(mnemonic=TWO1_WALLET_MNEMONIC)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
 
 # Application definition
 
@@ -49,6 +52,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django_extensions',
     'micropayment_server',
+    'two1.bitserv.django'
 )
 
 MIDDLEWARE_CLASSES = (
