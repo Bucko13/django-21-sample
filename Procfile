@@ -1,0 +1,1 @@
+web: gunicorn micropayment_server.wsgi --log-level=info --log-file -
