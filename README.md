@@ -13,3 +13,8 @@ To build:
   * `docker kill [CONTAINER]` to close running container
  * to enter the docker container shell run: `docker exec -it [container_id] sh` (run docker ps to get the list of running containers)
  
+
+Commands:
++ `python manage.py publish` will publish the current manifest.yml to the 21 marketplace
++ `heroku run python manage.py publish -a YOUR_APP_NAME` to publish from heroku (thus using the local variables for the published app)
+
