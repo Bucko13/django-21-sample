@@ -19,4 +19,5 @@ import micropayment_server.views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^buy$', micropayment_server.views.buy),
+    url(r'^redeem$', micropayment_server.views.redeem),
 ]
